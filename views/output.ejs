@@ -1,0 +1,89 @@
+<br>
+
+<div class="modal modal-signin position-static d-block py-7 box1" tabindex="-1" role="dialog" id="modalSignin">
+    
+        <div class="modal-dialog  mainbox" role="document">
+            <!-- <div class="modal-content rounded-4 shadow"> -->
+              <!-- <div class="modal-header p-10 pb-10 border-bottom-0"> -->
+      
+      
+                  <div class="form-group">
+                      <div class="Output">Output</div>
+                      <label for="exampleFormControlTextarea3"></label>
+                      <div class="txtbox">
+                          <textarea class="form-control textToSpeech txtarea" id="exampleFormControlTextarea3" rows="15"><%= msgg %></textarea>
+                      </div>
+                  </div>
+      
+                  <br><br>
+      
+      
+                  
+      
+              <!-- </div> -->
+          <!-- </div> -->
+          </div>
+        <div class="outflex"> 
+          <div class="vcbox">
+            <div class="voicebtm">
+                <div class="voicebox">
+                    <div class="voice tag">Select Voice:</div>
+                    <select id='voiceList' class="voicelist"></select> 
+                    <!-- <button id='btnSpeak'>Speak!</button> -->
+                    <button id='btnSpeak' class="btn btn-primary speakbtn">Speak!</button>
+                </div>
+                <div class="home">
+                        <span >
+                            <a href="/">Home</a>
+                        </span>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+<br>
+
+
+
+<script>
+    var txtInput = document.querySelector('#txtInput');
+    var voiceList = document.querySelector('#voiceList');
+    var btnSpeak = document.querySelector('#btnSpeak');
+    var newText = document.querySelector('.textToSpeech');
+    var synth = window.speechSynthesis;
+    var voices = [];
+
+    PopulateVoices();
+    if(speechSynthesis !== undefined){
+        speechSynthesis.onvoiceschanged = PopulateVoices;
+    }
+
+    btnSpeak.addEventListener('click', ()=> {
+        var toSpeak = new SpeechSynthesisUtterance(newText.value);
+        var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+        voices.forEach((voice)=>{
+            if(voice.name === selectedVoiceName){
+                toSpeak.voice = voice;
+            }
+        });
+        synth.speak(toSpeak);
+    });
+
+    function PopulateVoices(){
+        voices = synth.getVoices();
+        var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
+        voiceList.innerHTML = '';
+        voices.forEach((voice)=>{
+            var listItem = document.createElement('option');
+            listItem.textContent = voice.name;
+            listItem.setAttribute('data-lang', voice.lang);
+            listItem.setAttribute('data-name', voice.name);
+            voiceList.appendChild(listItem);
+        });
+
+        voiceList.selectedIndex = selectedIndex;
+    }
+</script>

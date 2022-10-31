@@ -1,0 +1,78 @@
+
+    <section id="info">
+        <div class="px-4 pt-5 my-5 text-center border-bottom">
+            <h1 class="display-4 fw-bold">Article Summarizer</h1>
+            <h4 class="display-6 fw">So many great articles,
+                so little time.</h4>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Keeping up with the latest research is tough. Still have hundreds of papers on your desktop? And have no time to read them! Just use ARC-SUM to Summarize them for you for <b>FREE<b></p>
+            </div>
+            <div class="overflow-hidden" style="max-height: 30vh;">
+            </div>
+          </div>
+    </section>
+
+
+
+    <div class="modal modal-signin position-static d-block py-5 homeform" tabindex="-1" role="dialog" id="modalSignin">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content rounded-4 shadow outerbox">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+              <!-- <h5 class="modal-title">Modal title</h5> -->
+              <div class="subform">
+                <form action="/" method="post" >
+                  <label for="cityInput" class="label">Input text: </label>
+                  <br>
+  
+                  <input type="text" id="inputText" name="textInput">
+                  <span style="text-align: center;" class="or"> OR</span>
+                    
+                  <br>
+                  <label for="urlInput" class="label">Input url of website: </label>
+                  <input type="text" name="urlInput" id="urlInput">
+          
+          
+                  <br>
+                  <br>
+                  <br>
+          
+                  <label for="cityInput" class="label">Number of sentences for summary: </label>
+                  <input type="text" name="inputSentences" id="sentences"></input>
+                  <br>
+                  <br>
+                  <div class="subbtn">
+                    <button type="submit" class="btn btn-primary " >Summarize</button>
+                  </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- <section id="input">
+        <form action="/" method="post">
+            <label for="cityInput">Input text: </label>
+            <textarea id="inputText" name="textInput"
+              rows="4" cols="40">
+            </textarea>
+    
+            <h2> OR</h2>
+            <label for="urlInput">Input url of website: </label>
+            <input type="text" name="urlInput" id="urlInput"></input>
+    
+    
+            <br>
+            <br>
+            <br>
+    
+            <label for="cityInput">Number of sentences for summary</label>
+            <input type="number" name="inputSentences" id="sentences"></input>
+            <button type="submit">Summarize</button>
+        </form>
+    </section> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        
